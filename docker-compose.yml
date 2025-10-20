@@ -2,9 +2,6 @@ services:
   mongodb:
     image: mongo:latest
     container_name: mongodb
-    environment:
-      - MONGO_INITDB_ROOT_USERNAME=${MONGODB_USERNAME}
-      - MONGO_INITDB_ROOT_PASSWORD=${MONGODB_PASSWORD}
     ports:
       - "${HOST_MONGODB_PORT:-27017}:27017"
     volumes:
@@ -14,7 +11,7 @@ services:
         aliases:
           - mongo
     healthcheck:
-      test: ["CMD-SHELL", "mongosh --quiet --username $${MONGODB_USERNAME} --password $${MONGODB_PASSWORD} --authenticationDatabase admin --eval 'db.runCommand({ ping: 1 })' >/dev/null 2>&1 || exit 1"]
+      test: ["CMD-SHELL", "mongosh --quiet --eval 'db.runCommand({ ping: 1 })' >/dev/null 2>&1 || exit 1"]
       interval: 2s
       timeout: 2s
       retries: 6
@@ -30,8 +27,6 @@ services:
       - ME_CONFIG_MONGODB_SERVER=mongodb
       - ME_CONFIG_MONGODB_PORT=27017
       - ME_CONFIG_MONGODB_ENABLE_ADMIN=true
-      - ME_CONFIG_MONGODB_AUTH_USERNAME=${MONGODB_USERNAME}
-      - ME_CONFIG_MONGODB_AUTH_PASSWORD=${MONGODB_PASSWORD}
       - ME_CONFIG_BASICAUTH=false
     ports:
       - "${HOST_MONGO_EXPRESS_PORT:-8081}:8081"
