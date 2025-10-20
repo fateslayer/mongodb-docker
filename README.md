@@ -33,6 +33,16 @@ Minimal Docker setup for latest MongoDB.
 - Remove containers, network, and named volumes: `docker compose down -v`
 - Remove everything including anonymous volumes and images: `docker compose down -v --rmi local`
 
+## CLI script
+
+- Use the helper script `./mongo.sh`:
+  - Start services: `./mongo.sh up`
+  - Tail logs: `./mongo.sh logs` or only MongoDB: `./mongo.sh logs:db`
+  - Stop and remove: `./mongo.sh down`
+  - Remove with volumes: `./mongo.sh down:volumes`
+  - Clean remove (volumes + local images): `./mongo.sh down:clean`
+  - List services: `./mongo.sh ps`
+
  
 
 ## Optional tools
