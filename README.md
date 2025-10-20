@@ -18,6 +18,13 @@ Minimal Docker setup for latest MongoDB.
 
 - Data is persisted in Docker volume `mongodb_data`.
 
+## UI
+
+- Mongo Express: http://localhost:${HOST_MONGO_EXPRESS_PORT:-8081}
+  - Uses the `mongodb` service connection and your root credentials.
+  - Bring everything up: `docker compose up -d`
+  - Stop all: `docker compose down`
+
 ## Optional tools
 
-- You can use MongoDB Compass or any MongoDB UI. No UI is bundled.
+- You can also use MongoDB Compass or any MongoDB UI.
