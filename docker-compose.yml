@@ -9,6 +9,10 @@ services:
       - "${HOST_MONGODB_PORT:-27017}:27017"
     volumes:
       - mongodb_data:/data/db
+    networks:
+      default:
+        aliases:
+          - mongo
 
   mongo-express:
     image: mongo-express:latest
