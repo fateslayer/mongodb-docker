@@ -4,9 +4,9 @@ Minimal Docker setup for latest MongoDB.
 
 ## Usage
 
-- Bring up: `docker compose up -d`
-- View logs: `docker compose logs -f mongodb`
-- Stop: `docker compose down`
+- Bring up: `docker compose up -d` or `pnpm up`
+- View logs (db): `docker compose logs -f mongodb` or `pnpm logs:db`
+- Stop: `docker compose down` or `pnpm down`
 
 ## Connection
 
@@ -27,9 +27,17 @@ Minimal Docker setup for latest MongoDB.
 
 ## Clean teardown
 
-- Stop and remove containers and network: `docker compose down`
-- Remove containers, network, and named volumes: `docker compose down -v`
-- Remove everything including anonymous volumes and images: `docker compose down -v --rmi local`
+- Stop and remove containers and network: `docker compose down` or `pnpm down`
+- Remove containers, network, and named volumes: `docker compose down -v` or `pnpm down:volumes`
+- Remove everything including anonymous volumes and images: `docker compose down -v --rmi local` or `pnpm down:clean`
+
+## Scripts
+
+- `pnpm up`: Start services in the background
+- `pnpm logs`: Tail all service logs
+- `pnpm logs:db`: Tail MongoDB logs
+- `pnpm restart`: Restart services
+- `pnpm ps`: List running services
 
 ## Optional tools
 
