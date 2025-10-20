@@ -25,6 +25,12 @@ Minimal Docker setup for latest MongoDB.
   - Bring everything up: `docker compose up -d`
   - Stop all: `docker compose down`
 
+## Clean teardown
+
+- Stop and remove containers and network: `docker compose down`
+- Remove containers, network, and named volumes: `docker compose down -v`
+- Remove everything including anonymous volumes and images: `docker compose down -v --rmi local`
+
 ## Optional tools
 
 - You can also use MongoDB Compass or any MongoDB UI.
