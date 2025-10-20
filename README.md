@@ -8,6 +8,11 @@ Minimal Docker setup for latest MongoDB.
 - View logs (db): `docker compose logs -f mongodb`
 - Stop: `docker compose down`
 
+### Environment setup
+
+- Copy `.env.example` to `.env` and adjust values as needed.
+- Note: `.env` is git-ignored to avoid committing secrets.
+
  
 
 ## Connection
